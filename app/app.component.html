@@ -1,0 +1,27 @@
+<!-- this is the main page for youtube API -->
+<br>
+<br>
+<br>
+  <!-- this is the title div containing the title, search bar & search button -->
+  <div align="center"><img src="assets/yt.png" width="150" height="40" style="float: left; padding-left: 20px; padding-right: 20px;" ></div>
+  <div align="center">
+    <form class="d-flex">
+      <input class="form-control me-sm-2" #channelName type="text" placeholder="SEARCH CHANNEL HERE">
+      <button class="btn btn-secondary my-2 my-sm-0" type="submit" (click)="getData()">Search</button>
+      
+    </form>
+  </div>
+
+  <br>
+
+<div class="grid">
+  <!-- this is the grid where channels from youtube are fetched from youtube.com using api -->
+  <!-- items are displayed in grids using ngfor loop -->
+  <ul *ngFor="let channel of channels">
+    <a target="_blank" href="https://www.youtube.com/channel/{{channel.id.channelId}}">
+      <img class="img-thumbnail" width="200" height="100" src="{{channel.snippet.thumbnails.medium.url}}" />
+    </a>
+    <br>
+   <label class="cName"><h3> {{channel.snippet.channelTitle}} </h3></label>
+  </ul>
+</div>
